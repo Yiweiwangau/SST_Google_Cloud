@@ -1,4 +1,4 @@
-# use Google Speech-to-Text API to transform data in Google Cloud
+# use Google Speech-to-Text API to transcribe data in Google Cloud
 def Speech_to_Text(filename):
     
     # Define the location using imported os.
