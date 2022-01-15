@@ -3,14 +3,15 @@ def Speech_to_Text(filename):
     
     # Define the location using imported os.
     import os
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="D:\Onedrive\work\Interview\Weldclass\speech-to-text-336805-17456073e2b9.json"
+    # Please enter key location
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="*********"
     # Import Google cloud speech and storage service initialize the speech-to-text API
     from google.cloud import speech
     from google.cloud import storage
     speech_client = speech.SpeechClient()
 
     # define audio file location
-    uri = 'gs://weldclass/Audio/'
+    uri = '****************'
     media_uri = uri+filename
 
     long_audi_wav = speech.RecognitionAudio(uri=media_uri)
@@ -32,7 +33,7 @@ def Speech_to_Text(filename):
         print(result.alternatives[0].confidence) # confidence score
     ## define the name and location of text file saved
     client = storage.Client()
-    bucket = client.get_bucket('weldclass')
+    bucket = client.get_bucket('********')
     blob = bucket.blob('Transcript/'+filename.replace('.','_')+'.txt') 
     # save the result to a text file
     with blob.open(mode='w') as f:
